@@ -219,7 +219,7 @@ describe 'ActiveRecord Obstacle Course' do
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
-    items = Item.where.not(id: [3,4,5])
+    items = Item.where.not(id: items_not_included)
     # ------------------------------------------------------------
 
     # Expectation
@@ -359,7 +359,7 @@ describe 'ActiveRecord Obstacle Course' do
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
-    items_for_user_3_third_order = Order.find_by(user_id: 3, id: 9).items.pluck(:name)
+    items_for_user_3_third_order = User.find(3).orders.third.items.pluck(:name)
     # ------------------------------------------------------------
 
     # Expectation
